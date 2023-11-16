@@ -16,21 +16,23 @@ iniciarPluginWhatsApp({
     status: "ativo",
     link: "/politica-de-privacidade",
     telefone: "41999999999",
+    endpoint: "/meu-endpoint.php",
+    recaptcha: "chave-de-site-recaptcha",
     prefixo: "veiculo",
-    endpoint: "/meu-endpoint.php"
+    bottom: "50px",
 });
 </code>
 </pre>
 # Explicação dos parâmetros
 
-Status: ativar ou desativar o plugin, qualquer coisa diferente de "ativo" faz com que o plugin seja desativado.
+Status (obrigatório): ativar ou desativar o plugin, qualquer coisa diferente de "ativo" faz com que o plugin seja desativado.
 
-Link: link para a política de privacidade do seu site, que vai ser acessível através do checkbox no formulário.
+Link (obrigatório): link para a política de privacidade do seu site, que vai ser acessível através do checkbox no formulário.
 
-Telefone: telefone whatsapp para qual o usuário será redirecionado após preencher o formulário corretamente.
+Telefone (obrigatório): telefone whatsapp para qual o usuário será redirecionado após preencher o formulário corretamente.
+
+Endpoint (obrigatório): endpoint em que o formulário será enviado, os campos estão com os nomes de: nome, telefone, email.
 
 Prefixo: prefixo da página individual do veículo para envio de formulários baseados no veículo.
 
-Endpoint: endpoint em que o formulário será enviado, os campos estão com os nomes de: nome, telefone, email.
-
-
+Recaptcha: chave pública do recaptcha (chave de site), o token gerado será vinculado ao campo g-recaptcha-response.

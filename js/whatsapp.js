@@ -6,7 +6,7 @@ function iniciarPluginWhatsApp(parametros) {
             return console.warn("Plugin WhatsApp do Auto Business informa que paramêtros obrigatórios estão faltando: "+p);
         }
     
-        html = `<div id="ab-formulario-whatsapp" class="ab-formulario-whatsapp">
+        html = `<div id="ab-formulario-whatsapp" class="ab-formulario-whatsapp ajustar-largura">
         <form id="ab-enviar-form-whatsapp" class="ab-enviar-form-whatsapp" style="display: none;">
         <span class="close-form">X</span>
         <input type="text" placeholder="Nome*" class="nome" name="nome" id="nome">
@@ -26,11 +26,16 @@ function iniciarPluginWhatsApp(parametros) {
         $("body").append(html);
     
         setTimeout(function(){
+            if (parametros.rodape != '' && parametros.rodape != null) {
+                $("#ab-formulario-whatsapp").css("bottom", parametros.rodape);
+            }
+
             $("#ab-link-pp").attr("href", parametros.link);
             $("#ab-link-revenda").attr("href", "https://autobusiness.com.br/revenda?utm_source="+window.location.hostname+"&utm_medium=plugin_whatsapp&utm_campaign=assinatura");
 
             $(".ab-logo-whatsapp").click(function(){
                 $(".ab-enviar-form-whatsapp").toggle();
+                $(".ab-formulario-whatsapp").toggleClass('ajustar-largura');
             })
 
             $("#telefone").on("input", function () {
@@ -39,6 +44,7 @@ function iniciarPluginWhatsApp(parametros) {
 
             $(".close-form").click(function() {
                 $(".ab-enviar-form-whatsapp").hide();
+                $(".ab-formulario-whatsapp").toggleClass('ajustar-largura');
             })
 
             $('#nome, #email, #telefone, #ab-pp').on('input', function() {
@@ -50,6 +56,16 @@ function iniciarPluginWhatsApp(parametros) {
                     $('.ab-aceitar-termos').prev('span.ab-mensagem-erro').remove();
                 }
             });
+
+            if (parametros.recaptcha != '' && parametros.recaptcha != null) {
+                grecaptcha.ready(function () {
+                    grecaptcha.execute("6Leuzj0mAAAAAFJ-Kqr8ddpWyIh9ymHx-b6l201t", {
+                      action: 'submit'
+                    }).then(function (token) {
+                        recaptcha = token;
+                    })
+                })
+            }
 
             var formularioEnviado = false; // Flag para verificar se o formulário já foi enviado
 
@@ -101,8 +117,12 @@ function iniciarPluginWhatsApp(parametros) {
                     }
 
                     dadosFormulario['token'] = $('meta[name="token"]').attr('content');
-                    dadosFormulario['mensagem'] = "teste";
+                    dadosFormulario['mensagem'] = "Mensagem automática: Contato enviado através do botão flutuante do whatsapp no site.";
                     dadosFormulario['origem'] = "Botão flutuante Auto Business";
+
+                    if (parametros.recaptcha != '' && parametros.recaptcha != null) {
+                        dadosFormulario['g-recaptcha-response'] = recaptcha;
+                    }
                     // Define a flag como true para evitar múltiplos envios
                     formularioEnviado = true;
 
@@ -113,8 +133,8 @@ function iniciarPluginWhatsApp(parametros) {
                         data: dadosFormulario,
                         success: function(data){
                             if (data.includes('success')) {
-                                window.location.href = "https://api.whatsapp.com/send?phone=55"+parametros.telefone+"&text=Estou%20entrando%20em%20contato%20através%20do%20site,%20meu%20nome:%20"+dadosFormulario['nome']+"%20e%20email:%20"+dadosFormulario['email']+". "+interesseVeiculo;
                                 console.log(data);
+                                window.location.href = "https://api.whatsapp.com/send?phone=55"+parametros.telefone+"&text=Estou%20entrando%20em%20contato%20através%20do%20site,%20meu%20nome:%20"+dadosFormulario['nome']+". "+interesseVeiculo;
                             } else {
                                 console.log(data);
                             }

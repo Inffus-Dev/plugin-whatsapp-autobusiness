@@ -7,6 +7,7 @@
     right: 15px;
     width: auto;
     letter-spacing: .3px;
+    z-index: 99999;
 }
 .ab-formulario-whatsapp .ab-logo-whatsapp {
     display: flex;
@@ -18,6 +19,9 @@
     padding: 35px;
     display: grid;
     margin-bottom: 10px;
+    box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.6);
+    -webkit-box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.6);
+    -moz-box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.6);
 }
 .ab-formulario-whatsapp .ab-enviar-form-whatsapp .close-form {
     position: absolute;
@@ -32,6 +36,9 @@
     border: none;
     padding: 7.5px;
 }
+.ab-formulario-whatsapp .ab-enviar-form-whatsapp label {
+    margin-bottom: 0 !important;
+}
 .ab-formulario-whatsapp .ab-enviar-form-whatsapp button {
     padding: 7.5px;
     background-color: #40c351;
@@ -40,6 +47,10 @@
     text-transform: uppercase;
     border: none;
     cursor: pointer;
+}
+.ab-formulario-whatsapp .ab-enviar-form-whatsapp button[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 .ab-formulario-whatsapp .ab-enviar-form-whatsapp .ab-aceitar-termos {
     display: flex;
@@ -61,7 +72,9 @@
     color: rgb(209, 5, 5);
     margin-bottom: 2px;
 }
-
+.ab-formulario-whatsapp.ajustar-largura {
+    width: auto;
+}
 @media only screen and (max-width: 768px) {
     .ab-formulario-whatsapp {
         width: 100%;
