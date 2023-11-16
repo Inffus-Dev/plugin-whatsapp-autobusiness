@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;700&display=swap');
+
+.ab-formulario-whatsapp {
+    font-family: 'Lato', sans-serif;
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    width: auto;
+    letter-spacing: .3px;
+}
+.ab-formulario-whatsapp .ab-logo-whatsapp {
+    display: flex;
+    justify-content: end;
+    cursor: pointer;
+}
+.ab-formulario-whatsapp .ab-enviar-form-whatsapp {
+    background-color: #eee;
+    padding: 35px;
+    display: grid;
+    margin-bottom: 10px;
+}
+.ab-formulario-whatsapp .ab-enviar-form-whatsapp .close-form {
+    position: absolute;
+    top: 4px;
+    right: 8px;
+    cursor: pointer;
+    font-size: 23px;
+    font-weight: 100;
+}
+.ab-formulario-whatsapp .ab-enviar-form-whatsapp input[type="text"] {
+    margin-bottom: 10px;
+    border: none;
+    padding: 7.5px;
+}
+.ab-formulario-whatsapp .ab-enviar-form-whatsapp button {
+    padding: 7.5px;
+    background-color: #40c351;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+}
+.ab-formulario-whatsapp .ab-enviar-form-whatsapp .ab-aceitar-termos {
+    display: flex;
+    font-size: 12px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.ab-formulario-whatsapp .ab-enviar-form-whatsapp .ab-aceitar-termos .ab-pp {
+    margin-right: 5px;
+}
+.ab-formulario-whatsapp .ab-enviar-form-whatsapp small {
+    text-align: center;
+    font-size: 10px;
+    margin-top: 10px;
+}
+
+.ab-formulario-whatsapp .ab-enviar-form-whatsapp .ab-mensagem-erro {
+    font-size: 11px;
+    color: rgb(209, 5, 5);
+    margin-bottom: 2px;
+}
+
+@media only screen and (max-width: 768px) {
+    .ab-formulario-whatsapp {
+        width: 100%;
+        right: 0;
+    }
+}
