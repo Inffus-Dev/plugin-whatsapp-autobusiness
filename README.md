@@ -1,5 +1,5 @@
 # Plugin WhatsApp por Auto Business
-Plugin que insere botão do WhatsApp ao seu site, e após o clique, um pequeno modal é aberto com 3 campos para serem enviados para um endpoint configurado.
+Plugin que insere botão do WhatsApp ao seu site, e após o clique, um pequeno modal é aberto com 3 campos para serem enviados para um endpoint configurado e em seguida redirecionar o usuário para o número WhatsApp informado no plugin.
 
 # Importação
 CSS:
