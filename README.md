@@ -3,7 +3,8 @@ Plugin que insere botão do WhatsApp ao seu site, e após o clique, um pequeno m
 
 # Importação
 CSS:
-Na seção `<head>` da página inicial do seu site, importe o css do plugin: <pre><code><link rel="stylesheet" href="https://cdn.autobusiness.com.br/whatsapp/css/whatsapp.css" /></code></pre>
+Na seção `<head>` da página inicial do seu site, importe o css do plugin: <pre><code>&lt;link rel="stylesheet" href="https://cdn.autobusiness.com.br/whatsapp/css/whatsapp.css" /&gt;</code></pre>
+
 
 JS:
 No final da seção `<body>` dá pagina inicial do seu site, antes do fechamento da tag `</body>`, importe o js do plugin: <pre><code><script src="https://cdn.autobusiness.com.br/whatsapp/js/whatsapp.js"></script></code></pre>
