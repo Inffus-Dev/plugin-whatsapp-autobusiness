@@ -1,4 +1,4 @@
-# Plugin WhatsApp by Auto Business
+# Plugin WhatsApp por Auto Business
 Plugin que insere botão do WhatsApp ao seu site, e após o clique, um pequeno modal é aberto com 3 campos para serem enviados para um endpoint configurado.
 
 # Importação
@@ -21,11 +21,16 @@ iniciarPluginWhatsApp({
 });
 </code>
 </pre>
-Explicação:
+# Explicação dos parâmetros
+
 Status: ativar ou desativar o plugin, qualquer coisa diferente de "ativo" faz com que o plugin seja desativado.
+
 Link: link para a política de privacidade do seu site, que vai ser acessível através do checkbox no formulário.
+
 Telefone: telefone whatsapp para qual o usuário será redirecionado após preencher o formulário corretamente.
+
 Prefixo: prefixo da página individual do veículo para envio de formulários baseados no veículo.
+
 Endpoint: endpoint em que o formulário será enviado, os campos estão com os nomes de: nome, telefone, email.
 
 
